@@ -9,9 +9,9 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const apiKey = process.env.REACT_APP_API_KEY_ABA; // Get API key from .env file
+      const apiKey = process.env.REACT_APP_API_KEY_CAL; // Get API key from .env file
       console.log('API Key:', apiKey); // Just for testing purposes
-      const url = 'https://holidays.abstractapi.com/v1/'; // Replace with your API endpoint
+      const url = 'https://calendarific.com/api/v2/holidays'; // Replace with your API endpoint
 
       try {
         setLoading(true); // Set loading to true before the request
