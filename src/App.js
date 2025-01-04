@@ -9,25 +9,23 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      /*
-      const apiKey = process.env.REACT_APP_API_KEY_HA; // Get API key from .env file
+      const apiKey = process.env.REACT_APP_API_KEY_ABA; // Get API key from .env file
       console.log('API Key:', apiKey); // Just for testing purposes
-      const url = 'https://holidayapi.com/v1/countries'; // Replace with your API endpoint
-      */
+      const url = 'https://holidays.abstractapi.com/v1/'; // Replace with your API endpoint
+
       try {
         setLoading(true); // Set loading to true before the request
-        const response = await axios.get('https://holidayapi.com/v1/countries', {        
+        const response = await axios.get(url, {        
+          /*
           headers: {
             Authorization: `Bearer ${process.env.REACT_APP_API_KEY_HA}`, // Use the API key in the Authorization header
           },
         });
-        /*
-          {
+        */
           headers: {
             Authorization: `Bearer ${apiKey}`, // Use the API key in the Authorization header
           },
         });
-        */ 
         setData(response.data); // Store the response data in state
       } catch (err) {
         console.error('API Error:', err); // Log the full error
@@ -64,4 +62,3 @@ function App() {
 }
 
 export default App;
-
