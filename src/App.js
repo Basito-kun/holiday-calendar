@@ -1,61 +1,72 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css'; // Optional styling
 
 function App() {
-  const [data, setData] = useState([]); // To store API data
-  const [loading, setLoading] = useState(true); // To handle loading state
-  const [error, setError] = useState(null); // To handle error state
+  const [country, setCountry] = useState('');
+  const [year, setYear] = useState(new Date().getFullYear());
+  const [holidays, setHolidays] = useState([]);
+  const [error, setError] = useState('');
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const apiKey = process.env.REACT_APP_API_KEY_CAL; // Get API key from .env file
-      console.log('API Key:', apiKey); // Just for testing purposes
-      const url = 'https://calendarific.com/api/v2/holidays'; // Replace with your API endpoint
+  const fetchHolidays = async () => {
+    try {
+      setError(''); // Clear any previous error
+      const response = await axios.get(`https://calendarific.com/api/v2/holidays`, {
+        params: {
+          api_key: process.env.REACT_APP_API_KEY_CAL,
+          country: country,
+          year: year,
+        },
+      });
+      setHolidays(response.data.response.holidays);
+    } catch (err) {
+      setError(err.response ? err.response.data.error.message : 'An error occurred');
+    }
+  };
 
-      try {
-        setLoading(true); // Set loading to true before the request
-        const response = await axios.get(url, {        
-          /*
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_API_KEY_HA}`, // Use the API key in the Authorization header
-          },
-        });
-        */
-          headers: {
-            Authorization: `Bearer ${apiKey}`, // Use the API key in the Authorization header
-          },
-        });
-        setData(response.data); // Store the response data in state
-      } catch (err) {
-        console.error('API Error:', err); // Log the full error
-        setError(err.message); // Set error message in case of failure
-      } finally {
-        setLoading(false); // Turn off loading after the request completes
-      }
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetchHolidays();
+  };
 
-    fetchData(); // Call the fetchData function when the component mounts
-  }, []); // Empty dependency array ensures the fetch runs only once
-
-  // Render the UI
   return (
     <div className="App">
-      <h1>API Data</h1>
-
-      {/* Show a loading message while fetching data */}
-      {loading && <p>Loading...</p>}
-
-      {/* Show an error message if the API request fails */}
-      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-
-      {/* Display the data if it is successfully fetched */}
-      {!loading && !error && (
-        <ul>
-          {data.map((item, index) => (
-            <li key={index}>{JSON.stringify(item)}</li>
-          ))}
-        </ul>
+      <h1>Holiday Calendar</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Country Code (e.g., US, NG, IN):
+          <input
+            type="text"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            placeholder="Enter country code"
+          />
+        </label>
+        <br />
+        <label>
+          Year:
+          <input
+            type="number"
+            value={year}
+            onChange={(e) => setYear(e.target.value)}
+            placeholder="Enter year"
+          />
+        </label>
+        <br />
+        <button type="submit">Get Holidays</button>
+      </form>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {holidays.length > 0 && (
+        <div>
+          <h2>Holidays in {country.toUpperCase()} for {year}</h2>
+          <ul>
+            {holidays.map((holiday) => (
+              <li key={holiday.name}>
+                {holiday.date.iso}: {holiday.name} ({holiday.type.join(', ')})
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );
