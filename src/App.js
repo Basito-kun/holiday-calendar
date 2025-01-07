@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css'; // Optional styling
+import CalendarView from './CalendarView';
+import randomColor from 'randomcolor';
 
 function App() {
   const [country, setCountry] = useState('');
   const [year, setYear] = useState(new Date().getFullYear());
   const [holidays, setHolidays] = useState([]);
   const [error, setError] = useState('');
+  const [countryColors, setCountryColors] = useState({});
 
   const fetchHolidays = async () => {
     try {
@@ -18,7 +21,11 @@ function App() {
           year: year,
         },
       });
-      setHolidays(response.data.response.holidays);
+
+      const fetchedHolidays = response.data.response.holidays;
+      const newColor = randomColor(); // Assign a random color for each country
+      setCountryColors((prev) => ({ ...prev, [country]: newColor }));
+      setHolidays(fetchedHolidays);
     } catch (err) {
       setError(err.response ? err.response.data.error.message : 'An error occurred');
     }
@@ -32,6 +39,7 @@ function App() {
   return (
     <div className="App">
       <h1>Holiday Calendar</h1>
+      <h5>The global work calendar at your fingertips!</h5>
       <form onSubmit={handleSubmit}>
         <label>
           Country Code (e.g., US, NG, IN):
@@ -56,18 +64,7 @@ function App() {
         <button type="submit">Get Holidays</button>
       </form>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      {holidays.length > 0 && (
-        <div>
-          <h2>Holidays in {country.toUpperCase()} for {year}</h2>
-          <ul>
-            {holidays.map((holiday) => (
-              <li key={holiday.name}>
-                {holiday.date.iso}: {holiday.name} ({holiday.type.join(', ')})
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {holidays.length > 0 && <CalendarView holidays={holidays} countryColors={countryColors} />}
     </div>
   );
 }

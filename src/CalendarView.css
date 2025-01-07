@@ -1,0 +1,12 @@
+.holiday {
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.legend {
+  margin-top: 20px;
+}
+
+.legend p {
+  margin: 5px;
+}
