@@ -1,32 +1,36 @@
 import React from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import './CalendarView.css'; // Add custom styles here
+import './CalendarView.css';  // Ensure you create a CSS file for additional styling
 
-function CalendarView({ holidays, countryColors }) {
-  const tileClassName = ({ date, view }) => {
+const CalendarView = ({ holidays }) => {
+  const tileContent = ({ date, view }) => {
     if (view === 'month') {
       const holiday = holidays.find(
-        (h) => new Date(h.date.iso).toDateString() === date.toDateString()
+        (holiday) => new Date(holiday.date.iso).toDateString() === date.toDateString()
       );
-      return holiday ? `holiday ${countryColors[holiday.country.id]}` : null;
+      if (holiday) {
+        return (
+          <div style={{ backgroundColor: holidayColor(holiday.country.id), color: 'white', borderRadius: '5%' }}>
+            {holiday.name}
+          </div>
+        );
+      }
     }
     return null;
   };
 
-  return (
-    <div>
-      <h2>Holiday Calendar</h2>
-      <Calendar tileClassName={tileClassName} />
-      <div className="legend">
-        {Object.entries(countryColors).map(([country, color]) => (
-          <p key={country} style={{ color }}>
-            {country.toUpperCase()}: {color}
-          </p>
-        ))}
-      </div>
-    </div>
-  );
-}
+  const holidayColor = (countryCode) => {
+    const colors = {
+      US: 'blue',
+      NG: 'green',
+      GB: '#1E90FF',
+      // Add more countries here
+    };
+    return colors[countryCode] || 'magenta';  // Default color
+  };
+
+  return <Calendar tileContent={tileContent} />;
+};
 
 export default CalendarView;

@@ -1,3 +1,10 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  }
+
 .holiday {
   border-radius: 50%;
   padding: 10px;
@@ -9,4 +16,93 @@
 
 .legend p {
   margin: 5px;
+}
+
+/*.calendar {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  background-color: #f9f9f9;
+  text-align: center;
+}
+*/
+
+
+.react-calendar {
+  width: 100%;
+  max-width: 90%;
+  height: 700px;
+  margin: 10% 0;
+  /* background-color: rgb(250, 236, 250); */
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  color: rgb(165, 4, 165);
+}
+
+.react-calendar__navigation {
+  background-color: whitesmoke;
+  color: rgb(105, 11, 105);
+  padding: 10px;
+  border-radius: 12px 12px 0 0;
+  height: 5em;
+}
+
+.react-calendar__navigation__label {
+  color: rgb(105, 11, 105);
+  font-weight: 30px;
+  font-size: large;
+}
+
+.react-calendar__tile {
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  height: 80px;  /* Increase the height of tiles */
+  min-width: 80px; /* Set a minimum width for tiles */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*border-radius: 8px;   Optional: Add rounded corners */
+  padding: 10px;  /* Add padding for spacing */
+  color: rgb(182, 7, 182);
+  position: relative; 
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile--active {
+  background: rgb(250, 103, 103);
+  color: white;
+  transform: scale(1);
+}
+
+.react-calendar__tile--now {
+  background: darkblue;
+  color: white;
+  transform: scale(1);
+}
+
+.react-calendar__tile--active {
+  background-color: rgb(156, 195, 253) !important; 
+  color: white !important;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #bf3ce7;
+}
+
+.react-calendar__tile--hasActive {
+  font-weight: bold;
+  border: 1px solid #009688;
+}
+
+.react-calendar__tile > div {
+  font-size: 12px;
+  padding: 5px;
 }
