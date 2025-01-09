@@ -35,11 +35,12 @@
 .react-calendar {
   width: 100%;
   max-width: 90%;
-  height: 700px;
+  height: 613px;
   margin: 10% 0;
   font-family: 'Poppins', sans-serif;
   border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 4px 8px rgb(167, 1, 167);
   border-radius: 12px;
   overflow: hidden;
   color: rgb(165, 4, 165);
@@ -52,19 +53,78 @@
   border-radius: 12px 12px 0 0;
   height: 4em;
   margin: none;
+  font-family: 'Nunito', sans-serif;
+}
+
+.react-calendar__navigation button {
+  background: none;   /* Remove background */
+  border: none;       /* Remove borders */
+  border-radius: 7%;
+  cursor: pointer;
+  margin: 3px;
+  font-size: 0.98em;
+  text-align: center;
+  display: block;
+  /* position: absolute; */
+  top: 5px;  /* Adjust for vertical positioning */
+  left: 5px; /* Adjust for horizontal positioning */
+  font-weight: bold; /* Optional: to make date number bold */
+}
+
+.react-calendar__navigation button:disabled {
+  color: rgb(177, 2, 177);        /* Dim color for disabled buttons */
+}
+
+.react-calendar__navigation button:active {
+  transform: scale(0.9);  /* Slight shrink effect on click */
 }
 
 .react-calendar__navigation__label {
   color: rgb(105, 11, 105);
-  font-weight: 30px;
+  font-weight: bold;
   font-size: large;
+}
+
+.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
+  font-size: 1.5em;
+}
+
+.react-calendar__navigation__arrow.react-calendar__navigation__prev2-button {
+  padding: 10px;
+  color: white;
+  background-color: rgb(121, 2, 121);
+  /* border-bottom-left-radius: 15%; */
+  border-top-left-radius: 13px;
+  margin-right: 2px;
+}
+
+.react-calendar__navigation__arrow.react-calendar__navigation__prev-button {
+  padding: 10px;
+  color: white;
+  background-color: rgb(121, 2, 121);
+  margin-left: 2px
+}
+
+.react-calendar__navigation__arrow.react-calendar__navigation__next-button{
+  padding: 10px;
+  color: white;
+  background-color: rgb(121, 2, 121);
+  margin-right: 2px;
+}
+
+.react-calendar__navigation__arrow.react-calendar__navigation__next2-button {
+  padding: 10px;
+  color: white;
+  background-color: rgb(121, 2, 121);
+  border-top-right-radius: 13px;
+  margin-left: 2px
 }
 
 .react-calendar__tile {
   padding: 10px;
   text-align: center;
   transition: transform 0.2s ease, background-color 0.2s ease;
-  height: 80px;  /* Increase the height of tiles */
+  height: 100px;  /* Increase the height of tiles */
   min-width: 80px; /* Set a minimum width for tiles */
   display: flex;
   align-items: center;
@@ -96,7 +156,7 @@
 } */
 
 .react-calendar__tile--now {
-  background: rgb(240, 180, 240);
+  background: rgb(243, 91, 218);
   color: white;
   transform: scale(1);
 }
@@ -135,6 +195,7 @@
   padding: 5px;
 }
 
+/* Days of the week (Mon - Sun) */
 .react-calendar__tile > abbr {
   display: block;
   position: absolute;

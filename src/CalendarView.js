@@ -1,7 +1,7 @@
 import React from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import './CalendarView.css';  // Ensure you create a CSS file for additional styling
+import './CalendarView.css';
 
 const CalendarView = ({ holidays }) => {
   const tileContent = ({ date, view }) => {
@@ -27,10 +27,18 @@ const CalendarView = ({ holidays }) => {
       GB: '#1E90FF',
       // Add more countries here
     };
-    return colors[countryCode] || 'magenta';  // Default color
+    return colors[countryCode] || 'magenta'; // Default color
   };
 
-  return <Calendar tileContent={tileContent} />;
+  return (
+    <Calendar
+      tileContent={tileContent}
+      nextLabel="Month >"
+      prevLabel="< Month"
+      next2Label="Year >>"
+      prev2Label="<< Year"
+    />
+  );
 };
 
 export default CalendarView;

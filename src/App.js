@@ -33,6 +33,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>Holiday Calendar</h1>
+      <h5>The global work calendar at your fingertips!</h5>
       <div className="input-container">
         <label>
           Country: 
