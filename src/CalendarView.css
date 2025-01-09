@@ -50,7 +50,8 @@
   color: rgb(105, 11, 105);
   padding: 10px;
   border-radius: 12px 12px 0 0;
-  height: 5em;
+  height: 4em;
+  margin: none;
 }
 
 .react-calendar__navigation__label {
@@ -70,30 +71,44 @@
   justify-content: center;
   /*border-radius: 8px;   Optional: Add rounded corners */  
   color: rgb(182, 7, 182);
-  position: relative; 
+  position: relative;
+  pointer-events: none;
 }
 
-.react-calendar__tile:enabled:hover,
+/* When pointer-events are inactive */
+.react-calendar__tile:enabled:hover, 
 .react-calendar__tile--active {
+  background-color: transparent !important; /* Remove background change */
+  color: inherit !important; /* Retain original text color */
+  border: none !important; /* Remove any border */
+}
+
+.react-calendar__tile--hover {
+  background-color: transparent !important; /* Prevent hover background */
+}
+
+/* when pointer-events are activated
+ .react-calendar__tile:enabled:hover,
+.react-calendar__tile--active {
+  background: rgb(240, 180, 240);
+  color: white;
+  transform: scale(1);
+} */
+
+.react-calendar__tile--now {
   background: rgb(240, 180, 240);
   color: white;
   transform: scale(1);
 }
 
-.react-calendar__tile--now {
-  background: darkblue;
-  color: white;
-  transform: scale(1);
-}
-
-.react-calendar__tile--active {
+/* .react-calendar__tile--active {
   background-color: rgb(156, 195, 253) !important; 
   color: white !important;
   border: 1px solid #cccccc;
-}
+} */
 
 .react-calendar__tile.react-calendar__month-view__days__day {
-  border: 0.05px solid rgb(240, 180, 240);
+  border: 0.05px solid rgb(238, 204, 238);
 }
 
 .react-calendar__month-view__weekdays__weekday {
@@ -106,12 +121,14 @@
 
 .react-calendar__month-view__days__day--neighboringMonth {
   color: rgb(185, 130, 185);
+  background-color: whitesmoke;
+  border-color: rgb(199, 199, 199) !important; 
 }
 
-.react-calendar__tile--hasActive {
+/* .react-calendar__tile--hasActive {
   font-weight: bold;
   border: 1px solid #009688;
-}
+} */
 
 .react-calendar__tile > div {
   font-size: 12px;
