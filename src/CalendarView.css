@@ -37,7 +37,6 @@
   max-width: 90%;
   height: 700px;
   margin: 10% 0;
-  /* background-color: rgb(250, 236, 250); */
   font-family: 'Poppins', sans-serif;
   border: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -69,15 +68,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /*border-radius: 8px;   Optional: Add rounded corners */
-  padding: 10px;  /* Add padding for spacing */
+  /*border-radius: 8px;   Optional: Add rounded corners */  
   color: rgb(182, 7, 182);
   position: relative; 
 }
 
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile--active {
-  background: rgb(250, 103, 103);
+  background: rgb(240, 180, 240);
   color: white;
   transform: scale(1);
 }
@@ -91,10 +89,23 @@
 .react-calendar__tile--active {
   background-color: rgb(156, 195, 253) !important; 
   color: white !important;
+  border: 1px solid #cccccc;
+}
+
+.react-calendar__tile.react-calendar__month-view__days__day {
+  border: 0.05px solid rgb(240, 180, 240);
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  border: 0.05px groove #cccccc;
 }
 
 .react-calendar__month-view__days__day--weekend {
-  color: #bf3ce7;
+  color: #8009e2;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: rgb(185, 130, 185);
 }
 
 .react-calendar__tile--hasActive {
@@ -105,4 +116,13 @@
 .react-calendar__tile > div {
   font-size: 12px;
   padding: 5px;
+}
+
+.react-calendar__tile > abbr {
+  display: block;
+  position: absolute;
+  top: 5px;  /* Adjust for vertical positioning */
+  left: 5px; /* Adjust for horizontal positioning */
+  font-weight: bold; /* Optional: to make date number bold */
+  font-size: 1em; /* Adjust to change size */
 }
