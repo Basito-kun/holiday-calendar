@@ -18,18 +18,13 @@
   margin: 5px;
 }
 
-/*.calendar {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  background-color: #f9f9f9;
-  text-align: center;
+h1 {
+  color: white;
 }
-*/
+
+h5 {
+  color: whitesmoke;
+}
 
 
 .react-calendar {
@@ -83,6 +78,7 @@
   color: rgb(105, 11, 105);
   font-weight: bold;
   font-size: large;
+  cursor: none;
 }
 
 .react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
@@ -90,34 +86,61 @@
 }
 
 .react-calendar__navigation__arrow.react-calendar__navigation__prev2-button {
-  padding: 10px;
+  padding: 7px 30px 20px 20px;
   color: white;
   background-color: rgb(121, 2, 121);
-  /* border-bottom-left-radius: 15%; */
-  border-top-left-radius: 13px;
-  margin-right: 2px;
+  border-top-right-radius: 150%;
+  border-bottom-left-radius: 150%;
+  margin: 3px 10px 4px inherit;
+  /* width: 30px; */
+  text-align: center;
 }
 
 .react-calendar__navigation__arrow.react-calendar__navigation__prev-button {
   padding: 10px;
-  color: white;
+  color: rgb(121, 2, 121);
   background-color: rgb(121, 2, 121);
-  margin-left: 2px
+  margin-left: 3px;
+  border-top-right-radius: 150%;
+  border-bottom-left-radius: 150%;
+  width: 3px;
+  margin-top: 10px;
 }
 
-.react-calendar__navigation__arrow.react-calendar__navigation__next-button{
+.react-calendar__navigation__arrow.react-calendar__navigation__prev-button:enabled:hover {
+  color: rgb(121, 2, 121);
+  background-color: rgb(121, 2, 121);
+}
+
+.react-calendar__navigation__arrow.react-calendar__navigation__next-button {
   padding: 10px;
-  color: white;
+  color: rgb(121, 2, 121);
   background-color: rgb(121, 2, 121);
   margin-right: 2px;
+  border-top-left-radius: 150%;
+  border-bottom-right-radius: 150%;
+  width: 3px;
+  margin-top: 10px;
+}
+
+.react-calendar__navigation__arrow.react-calendar__navigation__next-button:enabled:hover {
+  color: rgb(121, 2, 121);
+  background-color: rgb(121, 2, 121);
 }
 
 .react-calendar__navigation__arrow.react-calendar__navigation__next2-button {
-  padding: 10px;
-  color: white;
+  padding: 15px;
+  color: rgb(121, 2, 121);
   background-color: rgb(121, 2, 121);
-  border-top-right-radius: 13px;
-  margin-left: 2px
+  border-top-left-radius: 150%;
+  border-bottom-right-radius: 150%;
+  margin-left: 2px;
+  width: 4px;
+}
+
+.react-calendar__navigation__arrow.react-calendar__navigation__next2-button:enabled:hover {
+  color: rgb(121, 2, 121);
+  background-color: rgb(121, 2, 121);
 }
 
 .react-calendar__tile {
