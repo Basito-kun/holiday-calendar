@@ -56,7 +56,7 @@ const CountrySelector = ({ onCountrySelect }) => {
     <div className="country-selector" ref={dropdownRef} onBlur={handleBlur}>
       <input
         type="text"
-        placeholder="Type country name or code"
+        placeholder="Enter country"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         onFocus={() => setShowDropdown(filteredCountries.length > 0)}

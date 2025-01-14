@@ -13,30 +13,49 @@ const App = () => {
   const [holidays, setHolidays] = useState([]);
 
   const fetchHolidays = async () => {
-    if ( country && year && month ) {
+    if (country && year) {
       try {
-        const response = await axios.get(`https://calendarific.com/api/v2/holidays`, {
+        const response = await axios.get("https://calendarific.com/api/v2/holidays", {
           params: {
-            api_key: process.env.REACT_APP_API_KEY_CAL,
+            api_key: 'DcF8iroPSWYxjXu9nCqzaQtjTy0Q2qAb',
             country: country,
             year: year,
-            month: month,
           },
         });
 
         const fetchedHolidays = response.data.response.holidays;
         setHolidays(fetchedHolidays);
+        console.log(fetchedHolidays);
       } catch (error) {
         console.error("Error fetching holidays:", error);
       }
     }
   };
 
+  // axios.get("https://calendarific.com/api/v2/holidays", {
+  //   params: {
+  //     api_key: 'DcF8iroPSWYxjXu9nCqzaQtjTy0Q2qAb',
+  //     country: country,
+  //     year: year,
+  //     month: month,
+  //   },
+  //   })
+  //   .then(response => {
+  //   console.log(response.data);
+  //   })
+  //   .catch(error => {
+  //     console.error('fetching error:', error);
+  //   });
+
+
   return (
     <div className="App">
       <h1>Holiday Calendar</h1>
-      <h5>The global work calendar at your fingertips!</h5>
+      <h5>Global Holidays at your Fingertips!</h5>
       <div className="input-container">
+        <div>
+          <h1>Let the exploration Begin!</h1>
+        </div>
         <label>
           Country: 
           <CountrySelector onCountrySelect={(code) => setCountry(code)} /> {/* Integrated the CountrySelector */}
@@ -47,9 +66,9 @@ const App = () => {
         </label>
         <label>
           Month: 
-          <input type="number" min="1" max="12" value={month} onChange={(e) => setMonth(Number(e.target.value))} />
+          <input type="number" min="1" max="12" style={{ height: '45px' }} value={month} onChange={(e) => setMonth(Number(e.target.value))} />
         </label>
-        <button onClick={fetchHolidays}>Get Holidays</button>
+        <button onClick={ fetchHolidays }>Get Holidays</button>
       </div>
       <CalendarView holidays={holidays} year={year} month={month} />
     </div>

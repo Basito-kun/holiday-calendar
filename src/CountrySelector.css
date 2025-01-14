@@ -9,7 +9,7 @@
   position: absolute; /* Keep it in position */
   width: 100%; /* Match the input field width */
   z-index: 100; /* Ensure it's above other elements */
-  max-width: 800px;
+  max-width: 400px;
   width: 85vw;
 }
 
@@ -29,4 +29,8 @@
   width: 24px;
   height: 16px;
   object-fit: cover;
+}
+
+.country-selector > input {
+  margin-top: 0px;
 }
