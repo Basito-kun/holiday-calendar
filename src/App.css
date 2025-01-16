@@ -20,25 +20,49 @@
   }
 } */
 
-/* body {
-  background-image: url("HolidayCal.jpg");
-  background-repeat: no-repeat;
+
+.bg-overlay {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 115%;
+  background: rgba(19, 19, 19, 0.5); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  color: white;
+  text-align: center; 
+  align-items: stretch;
+  font-size: 1.8em;
+}
+
+
+.bg-overlay h1 {
+  margin-top: -23%;
+} 
+
+/* @media screen and (min-width: 320px) {
+  .bg-overlay {
+    font-size: 1.2em;
+  }
+  
+  .bg-overlay h1 {
+    margin-top: -130%;
+  }
+
+  .input-container {
+    max-width: 100px;
+    width: 10vw;
+    height: 50%;
+    margin-top: 100em;
+  }
+ } */
+
+/* .bg-overlay p {
+  font-size: 1em;
 } */
-.App > h1, h5 {
-  margin-top: 6%;
-}
-
-.App > h1 {
-  font-size: 4em;
-}
-
-h5 {
- color: gray; 
- font-size: 1.9em;
- margin-top: 1%;
- background-color: rgb(105, 11, 105);
- width: 99.5%;
-}
 
 input {
   width: 100%;
@@ -51,6 +75,7 @@ input {
   color: rgb(121, 2, 121);
   margin-bottom: 7px;
 }
+
 input:focus,
 input:hover {
   border: .149rem solid rgb(167, 1, 167);
@@ -75,8 +100,8 @@ input:hover {
   z-index: 100;
   align-items: center;
   justify-content: center;
-  margin-left: 320px;
-  margin-top: 37.3%;
+  margin-left: 325px;
+  margin-top: 55.7%;
 }
 
 .input-container > div {

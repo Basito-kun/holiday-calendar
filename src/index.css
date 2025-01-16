@@ -7,18 +7,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: url("HolidayCal2.jpg");
+  background-repeat: no-repeat; */
   background-image: url("HolidayCal2.jpg");
   background-repeat: no-repeat;
-  /* background-position: 0px; */
+  position: relative; 
+  max-width: 100%;
+  height: 100vh; /* Full screen height: 100vh */
+  background-size: cover;
+  /* background-position: center; */
+  z-index: 10;
 }
+
+/* @media screen and (min-width: 320px) {
+  /* body {
+    max-width: 30%;
+    height: 20vh;
+
+  }
+ }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-img {
-  max-width: 100%;
-  height: 70px;
-  opacity: 0.5;
-}
+}  */

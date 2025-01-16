@@ -44,6 +44,10 @@ h5 {
   justify-content: center;
 }
 
+/* @media screen and (min-width: 320px) {
+ 
+} */
+
 .react-calendar__navigation {
   background-color: whitesmoke;
   color: rgb(105, 11, 105);
@@ -58,7 +62,8 @@ h5 {
   background: none;   /* Remove background */
   border: none;       /* Remove borders */
   border-radius: 7%;
-  cursor: pointer;
+  pointer-events: none; /* Disable all interactions */
+  cursor: default;      /* Use a default cursor */
   margin: 3px;
   font-size: 0.98em;
   text-align: center;
@@ -89,13 +94,16 @@ h5 {
 
 .react-calendar__navigation__arrow.react-calendar__navigation__prev2-button {
   padding: 7px 30px 20px 20px;
-  color: white;
+  color: rgb(121, 2, 121);
   background-color: rgb(121, 2, 121);
   border-top-right-radius: 150%;
   border-bottom-left-radius: 150%;
   margin: 3px 10px 4px inherit;
   /* width: 30px; */
   text-align: center;
+  /* Show pointer cursor: */
+  /* pointer-events: auto;
+  cursor: pointer;       */
 }
 
 .react-calendar__navigation__arrow.react-calendar__navigation__prev-button {

@@ -38,7 +38,12 @@ const CalendarView = ({ holidays, year, month }) => {
   
   // const calendarDate = new Date(year, month - 1);  // Set calendar to specified year and month
 
-  const navigateToToday = () => setDate(new Date()); // Set the date to today
+  // const navigateToToday = () => setDate(new Date()); // Set the date to today
+
+  // const navigateToToday = () => {
+  //   const today = new Date();
+  //   setDate(today);  // Set date to today
+  // };
 
   return(
     <Calendar
@@ -48,7 +53,8 @@ const CalendarView = ({ holidays, year, month }) => {
       nextLabel={<span style={{ opacity: 0.5, pointerEvents: 'none' }}></span>}
       prevLabel={<span style={{ opacity: 0.5, pointerEvents: 'none' }}></span>}
       next2Label={<span style={{ opacity: 0.5, pointerEvents: 'none' }}>oday</span>}
-      prev2Label={<span onClick={navigateToToday}>Today</span>}
+      // prev2Label={<button onClick={navigateToToday} style={{ background: 'none', border: 'none', color: 'inherit' }}>Today</button>}
+      prev2Label={<span style={{ opacity: 0.5, pointerEvents: 'none' }}>Today</span>}
     />
   );
 };
